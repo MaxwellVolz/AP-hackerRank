@@ -2,12 +2,24 @@
 //
 // max
 
-var takeRole = function(input){
+var professor = function(input){
+	var amtOfClasses = input.split("\n")[0],
+		counter = 0,
+		allData = input.split("\n");
+		
+	while(amtOfClasses > 0){
+		counter+=2;
+	 	console.log(takeRole(allData[counter-1],allData[counter]));
+		--amtOfClasses;
+	}
+}
 
-	var rows = input.split("\n"),
-		minStudents = rows[0].split(" ")[1],
-		amtOfStudents = rows[0].split(" ")[0],
-		students = rows[1].split(" "),
+
+var takeRole = function(required, attendance){
+
+	var minStudents = required.split(" ")[1],
+		amtOfStudents = required.split(" ")[0],
+		students = attendance.split(" "),
 		counter = 0;
 
 	while(amtOfStudents >= 0){
@@ -20,11 +32,9 @@ var takeRole = function(input){
 		return 'YES';
 	}
 	
-
 	return 'NO';
 }
 
-var testInput = "4 3\n-1 -3 4 2",
-	testInput2 = "4 2\n0 -1 2 1";
-console.log(takeRole(testInput));
-console.log(takeRole(testInput2));
+
+var testInput = "2\n4 3\n-1 -3 4 2\n4 2\n0 -1 2 1";
+professor(testInput);
