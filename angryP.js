@@ -2,37 +2,29 @@
 //
 // max
 
-var professor = function(input){
-	var amtOfClasses = input.split("\n")[0],
-		counter = 0,
-		allData = input.split("\n");
-		
-	while(amtOfClasses > 0){
-		counter+=2;
-	 	console.log(takeRole(allData[counter-1],allData[counter]));
-		--amtOfClasses;
-	}
-}
+var professor = function(x){
+	var s = x.split("\n"),
+		a = parseInt(s[0]);
 
-
-var takeRole = function(required, attendance){
-
-	var minStudents = required.split(" ")[1],
-		amtOfStudents = required.split(" ")[0],
-		students = attendance.split(" "),
-		counter = 0;
-
-	while(amtOfStudents >= 0){
-		if(students[amtOfStudents] >= 0){
-			++counter;
+	for(x=1,y=s.length;x<y;x+=2){
+		var r = s[x].split(" ")[1],
+			p = s[x+1].split(" "),
+			m = p.length,
+			k = 0;
+		for(d=0,c=m; d<c; ++d){
+			if(p[d] >= 0){
+				++k;
+			}
 		}
-		--amtOfStudents;
-	}
-	if(counter >= minStudents){
-		return 'YES';
+		
+		if(k > r){
+			console.log('NO');
+		}
+		else{
+			console.log('YES');
+		}
 	}
 	
-	return 'NO';
 }
 
 
